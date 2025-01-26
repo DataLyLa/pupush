@@ -94,7 +94,8 @@ void set_ra_rrb(t_count *count, int ra, int rrb, char c);
 void set_rra_rb(t_count *count, int rra, int rb, char c);
 void set_ra_rra(t_count *count, int ra, int rra, char c);
 void set_rb_rrb(t_count *count, int rb, int rrb, char c);
-void ft_set_count(t_list *lst, int best_move, char c);
+void ft_set_count_a(t_list *lst, int best_move, char c);
+void ft_set_count_b(t_list *lst, int best_move, char c);
 int ft_set_best_move(t_list* lst);
 
 void ft_swap(t_list **lst);
@@ -107,6 +108,7 @@ t_list *ft_set_mark(t_list *lst, t_list *ref);
 int ft_mark_clean(t_list *lst, int n);
 int		ft_len_order(t_list *start, t_list *last, t_list *lst, t_list *next, int len);
 void		ft_find_order(t_list *lst);
+void ft_find_order_minmax(t_list *lst);
 
 int clean_a(t_pile *pile);
 int clean_b(t_pile *pile);
@@ -114,15 +116,21 @@ t_list *ft_find_next_move(t_list *lst);
 void ft_create_count(t_list *lst, t_list *lst_target, char c);
 t_list *ft_find_targetb(t_list *lst, t_list *lst_target);
 t_list *ft_find_targeta(t_list *lst, t_list *lst_target);
-void ft_put_move(t_list *move, t_list **lst, t_list **lst_target, t_move **mvt);
+void ft_put_move_a(t_list *move, t_list **lst, t_list **lst_target, t_move **mvt);
+void ft_put_move_b(t_list *move, t_list **lst, t_list **lst_target, t_move **mvt);
 
 void ft_do_move(void (*f)(t_list **), t_list **arg, int n);
-void ft_move_1(t_list **mv, t_list **lst, t_move **mvt);
-void ft_move_2(t_count *count, t_list **lst, t_list **lst_target, t_move **mvt);
-void ft_move_3(t_count *count, t_list **lst, t_list **lst_target, t_move **mvt);
-void ft_move_4(t_count *count, t_list **lst, t_list **lst_target, t_move **mvt);
+void ft_move_a_1(t_list **mv, t_list **lst, t_move **mvt);
+void ft_move_b_1(t_list **mv, t_list **lst, t_move **mvt);
+void ft_move_a_2(t_count *count, t_list **lst, t_list **lst_target, t_move **mvt);
+void ft_move_b_2(t_count *count, t_list **lst, t_list **lst_target, t_move **mvt);
+void ft_move_a_3(t_count *count, t_list **lst, t_list **lst_target, t_move **mvt);
+void ft_move_b_3(t_count *count, t_list **lst, t_list **lst_target, t_move **mvt);
+void ft_move_a_4(t_count *count, t_list **lst, t_list **lst_target, t_move **mvt);
+void ft_move_b_4(t_count *count, t_list **lst, t_list **lst_target, t_move **mvt);
 void ft_move_first(t_list *first, t_list **lst, t_move **mvt);
 void ft_print_move(t_move *move);
+int ft_sorted_minmax(t_list *lst);
 
 
 int		error_int(char *s, int i);
@@ -137,5 +145,6 @@ void	free_count(t_count *count);
 
 void	ft_print_lst(char *s, t_list *lst, char type);
 void	print_lst_ld(t_list *lst);
+void ok(char *s);
 
 #endif

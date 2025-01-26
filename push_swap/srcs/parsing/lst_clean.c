@@ -80,7 +80,10 @@ void ft_create_count(t_list *lst, t_list *lst_target, char c)
                 best_move = 0;
             else
                 best_move = ft_set_best_move(tmp);
-            ft_set_count(tmp, best_move, c); 
+            if (c == 'a')
+                ft_set_count_b(tmp, best_move, c);
+            else
+                ft_set_count_a(tmp, best_move, c);
         }
         tmp = tmp->next;
     }
@@ -141,7 +144,7 @@ int clean_a(t_pile *pile)
     printf("pa : %d  ", move->count.pa);
     printf("total : %d  ", move->count.total);
     printf("\nmove  count clean a : %d\n", move->count.move);
-    ft_put_move(move, &(pile->a), &(pile->b), &(pile->mvt));
+    ft_put_move_a(move, &(pile->a), &(pile->b), &(pile->mvt));
     ft_print_lst("-a %ld -", pile->a, 'n');
     printf("\n");  
     ft_print_lst("-m %d -", pile->a, 'm');
@@ -177,7 +180,7 @@ int clean_b(t_pile *pile)
     printf("pa : %d  ", move->count.pa);
     printf("total : %d  ", move->count.total);
     printf("\nmove  count clean a : %d\n", move->count.move);
-    ft_put_move(move, &(pile->b), &(pile->a), &(pile->mvt));
+    ft_put_move_b(move, &(pile->b), &(pile->a), &(pile->mvt));
     ft_print_lst("-a %ld -", pile->a, 'n');
     printf("\n");  
     ft_print_lst("-m %d -", pile->a, 'm');

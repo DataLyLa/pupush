@@ -13,7 +13,7 @@ void ft_do_move(void (*f)(t_list **), t_list **arg, int n)
     }
 }
 
-void ft_move_1(t_list **mv, t_list **lst, t_move **mvt)
+void ft_move_a_1(t_list **mv, t_list **lst, t_move **mvt)
 {
     if(!mv || !lst)
         return ;
@@ -32,7 +32,7 @@ void ft_move_1(t_list **mv, t_list **lst, t_move **mvt)
     ft_move_addback(mvt, move_init("sa\n", (*mv)->count.sa));
 }
 
-void ft_move_2(t_count *count, t_list **lst, t_list **lst_target, t_move **mvt)
+void ft_move_a_2(t_count *count, t_list **lst, t_list **lst_target, t_move **mvt)
 {
     if(!count || !lst)
         return ;
@@ -63,7 +63,7 @@ void ft_move_2(t_count *count, t_list **lst, t_list **lst_target, t_move **mvt)
        ft_move_addback(mvt, move_init("pb\n", count->pb));
 }
 
-void ft_move_3(t_count *count, t_list **lst, t_list **lst_target, t_move **mvt)
+void ft_move_a_3(t_count *count, t_list **lst, t_list **lst_target, t_move **mvt)
 {
     if(!count || !lst)
         return ;
@@ -91,7 +91,7 @@ void ft_move_3(t_count *count, t_list **lst, t_list **lst_target, t_move **mvt)
 
 }
 
-void ft_move_4(t_count *count, t_list **lst, t_list **lst_target, t_move **mvt)
+void ft_move_a_4(t_count *count, t_list **lst, t_list **lst_target, t_move **mvt)
 {
     if(!count || !lst)
         return ;

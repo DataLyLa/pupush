@@ -13,7 +13,7 @@ INCLUDE_DIR = includes/
 PARSING = $(addprefix parsing/, parse find_order lst_clean)
 UTILS = $(addprefix utils/, compare error free get_1 get_2 set_1 set_2 set_3)
 LST_UTILS = $(addprefix lst_utils/, init handle)
-MOVE = $(addprefix move/, put_move move_1 move_2)
+MOVE = $(addprefix move/, put_move move_1 move_2 move_3)
 
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, main print_lst $(PARSING) $(UTILS) $(LST_UTILS) $(MOVE)))
 OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, main print_lst $(PARSING) $(UTILS) $(LST_UTILS) $(MOVE)))

@@ -51,12 +51,10 @@ int ft_set_best_move(t_list* lst)
     return (res + 1);
 }
 
-void ft_set_count(t_list *lst, int best_move, char c)
+void ft_set_count_a(t_list *lst, int best_move, char c)
 {
-    if(best_move == 0 && c == 'b')
+    if(best_move == 0)
         set_ra_rra(&(lst->count), lst->top, lst->btm, c);
-    else if(best_move == 0 && c == 'a')
-        set_rb_rrb(&(lst->count), lst->top, lst->btm, c);
     else if(best_move == 1)
         set_rr(&(lst->count), lst->top, lst->target->top, c);
     else if(best_move == 2)
@@ -65,5 +63,19 @@ void ft_set_count(t_list *lst, int best_move, char c)
         set_ra_rrb(&(lst->count), lst->top, lst->target->btm, c);
     else if(best_move == 4)
         set_rra_rb(&(lst->count), lst->btm, lst->target->top, c);
+}
+
+void ft_set_count_b(t_list *lst, int best_move, char c)
+{
+    if(best_move == 0)
+        set_rb_rrb(&(lst->count), lst->top, lst->btm, c);
+    else if(best_move == 1)
+        set_rr(&(lst->count), lst->target->top, lst->top, c);
+    else if(best_move == 2)
+        set_rrr(&(lst->count), lst->target->btm, lst->btm, c);
+    else if(best_move == 3)
+        set_ra_rrb(&(lst->count), lst->target->top, lst->btm, c);
+    else if(best_move == 4)
+        set_rra_rb(&(lst->count), lst->target->btm, lst->top, c);
 }
 

@@ -5,11 +5,10 @@ t_list *ft_mark(t_list *ref, t_list *last, t_list *cmp, t_list *next)
     printf("Current: %ld, Next: %ld\n", next->num, get_next(next)->num);
     if (next == ref)
     {
-
         printf("mark_ Node: %ld, Mark: %d\n", next->num, next->mark);
         return next;
     }
-    if ((cmp->num < next->num) || (cmp == ref->max && next == ref->min))
+    if ((cmp->num < next->num) || (cmp == cmp->max && next == cmp->min))
     {
         next->mark = 0;
         printf("mark_ Node: %ld, Mark: %d\n", next->num, next->mark);
@@ -19,7 +18,7 @@ t_list *ft_mark(t_list *ref, t_list *last, t_list *cmp, t_list *next)
     {
         if (last->mark == -1)
         {
-            next->mark = 1;
+            cmp->mark = 1;
             last->mark = 0;
         }
         else
@@ -60,6 +59,8 @@ int ft_len_order(t_list *start, t_list *last, t_list *cmp, t_list *next, int len
 {
     if(next == start)
     {
+        if (cmp->num > next->num)
+            len += 1;
         return (len);    
     }
         
@@ -111,4 +112,21 @@ void ft_find_order(t_list *lst)
     print_lst_ld(ref);
     printf("\n");
     lst = ft_set_mark(lst, ref);
+}
+
+
+void ft_find_order_minmax(t_list *lst)
+{
+    if(!lst)
+        return ;
+    ok("Enter min max order");
+    lst = ft_set_mark(lst, lst->min);
+    printf("\nfind order minimax");
+    ft_print_lst("-list : %ld ", lst, 'n');
+    printf("\n");
+    ft_print_lst("-list : %d ", lst, 'm');
+    printf("\n");
+    printf("\nref\n");
+    print_lst_ld(lst->min);
+    printf("\n");
 }
